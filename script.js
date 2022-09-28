@@ -18,11 +18,33 @@ var app = new Vue({
       alert("Estamos enviando");
     },
     agregarEmail: function() {
-      this.listaEmails.push(this.email);
+      const infoDeEmail = {
+        email: this.email,
+        check: false,
+        show: true
+      }
+      this.listaEmails.push(infoDeEmail);
       this.email = "";
+    },
+    eliminarEmail: function() {
+      for(let item of this.listaEmails) {
+        if(item.check) {
+          item.show = false;
+        }
+      }
     },
     limpiarListaEmail: function() {
       this.listaEmails = [];
+    },
+    obtenerEmailsVisibles: function() {
+      const listaVisible = [];
+      for (let item of this.listaEmails) {
+        if (item.show) {
+          listaVisible.push(item);
+        }
+      }
+      return listaVisible;
+      // return this.listaEmails.filter((item) => item.show);
     }
   }
 })
