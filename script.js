@@ -7,6 +7,11 @@ var app = new Vue({
     codigoHtml: '<h1>Título de página</h1>',
     estaChequeado: false,
     listaDeElementos: []
+  },
+  methods: {
+    mostrarTextoEnConsola: function() {
+      console.log("TEXTO EN CONSOLA");
+    },
   }
 })
 
